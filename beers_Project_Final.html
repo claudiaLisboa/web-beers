@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Nom: Claudia Lisboa
+       Description: 420-P55-AS PROGRAMMATION INTERNET I
+       PROJET FINAL -->
+  <meta charset="UTF-8">
+  <title>Beers</title>
+<style type="text/css">
+	body {
+		background: white;
+		font-family: "Helvetica", "Arial", sans-serif;
+		font-size: 15px;
+	}
+
+	img {
+		height: 100%;
+		display: block;
+	}
+
+	h1 {
+		text-align: center;
+		padding-bottom: 20px;
+		font-family: "Gibson Light", "Helvetica", "Arial", sans-serif;
+	}
+
+	td {
+		padding: 20px;
+		width: 33%;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	.imgCell {
+		height: 200px;
+	}
+
+	.beer{
+		font-family: "Gibson Light", "Helvetica", "Arial", sans-serif;
+		font-size: 18px;
+		font-weight: bold;
+		height: 1px;
+		padding: 5px;
+		padding-left: 20px;
+	}
+
+	.price {
+		font-weight: bold;
+	}
+
+	.cartInfo {
+		display: none;
+		position: fixed;
+		top: 0;
+		right: 0;
+		padding: 10px;
+		border: 3px solid #73AD21;
+		background: #F5F0D0;
+		font-weight: bold;
+		text-align: left;
+		vertical-align: center;
+		white-space: nowrap;
+	}
+</style>
+<script type="text/javascript" src="JS/cookies.js"></script>
+<script type="text/javascript" src="JS/regexp.js"></script>
+<script type="text/javascript" src="JS/products.js"></script>
+<script type="text/javascript" src="JS/functions.js"></script>
+<script type="text/javascript">
+function showCart()
+{
+	if (isCartEmpty())
+	{
+		loadCartInfo();
+	}
+
+	var divCart = document.getElementById('divCart');
+	divCart.style.display = "inline-block";
+
+	var divCartTotal = document.getElementById('divCartTotal');
+	divCartTotal.innerHTML = 'Cart: $' + calculateCart();
+}
+
+function add1ToCart(product)
+{
+	addToCart(product, 1);
+	showCart();
+}
+
+function checkout()
+{
+	window.location.href = "formulaire_payment_Project_Final.html";
+}
+</script>
+</head>
+<body id="top" onload="showCart()">
+	<div id="divCart" class="cartInfo">
+		<div id="divCartTotal">Cart: $0</div>
+		<br/>
+		<input type="button" value="Checkout" onclick="checkout()">
+	</div>
+	<!-- Belgium-->
+   	<h1 id="belgium">Belgium</h1>
+	<table>
+		<tr>
+				<td class="beer">
+	             	Duvel
+				</td>
+				<td class="beer">
+					Delirium Tremens
+				</td>
+				<td class="beer">
+					Chimay Yellow - Trappiste
+				</td>
+		</tr>
+		<tr>
+				<td class="imgCell">
+					<img src="images/duvel.jpg" alt="belgium"/>
+					<p class="price">$ 8.00</p>
+					<button onclick="add1ToCart('duvel')">Add 1 to cart</button>
+				</td>
+				<td class="imgCell">
+					<img src="images/delirium-tremens.jpg" alt="belgium"/> 
+					<p class="price">$ 9.00</p>
+					<button onclick="add1ToCart('delirium')">Add 1 to cart</button>
+				</td>
+				<td class="imgCell">
+					<img src="images/Chimay-Trappiste.jpg" alt="belgium"/>
+					<p class="price">$ 10.00</p>
+					<button onclick="add1ToCart('chimay')">Add 1 to cart</button>
+				</td>
+		</tr>
+		<tr>
+				<td>
+					A Duvel is still seen as the reference among strong golden ales. Its bouquet is lively and tickles the nose with an element of citrus which even tends towards grapefruit thanks to the use of only the highest-quality hop varieties. This is also reflected in the flavour, which is beautifully balanced with a hint of spiciness. Thanks to its high CO2 content, this beer has a wonderful roundness in the mouth. A Duvel is both the perfect thirst quencher and the ideal aperitif.
+
+					<p>Style: Special beer, re-fermented in the bottle</p>
+					<p>Taste: Slightly fruity, dry aroma, well-hopped beer and with a slightly bitter aftertaste</p>	
+					<p>Hops: Saaz-Saaz & Styrian Golding</p>
+					<p>Appearance: Blond</p>
+					<p>Shelf life: 24 months</p>
+					<p>Serving Tips: Always serve in the tulip shaped Duvel glass at 5°C</p>
+				</td>
+				<td>
+					<p>
+					In 1906, Laurent Huyghe bought the brewery where he had been working for four years. Though the brewery itself dates back to the 17th century, Delirium Tremens —its flagship beer with the pink elephant on the label— was first brewed on December 26, 1989. This Belgian Strong Golden Ale has potent aromas of alcohol and spice thanks to the complex blend of yeasts used to brew the beer.</p>
+				</td>
+				<td>
+					Chimay Yellow : Known by a couple of different names, this Belgian Tripel was created in 1966 (known as White Cap) and is brewed to a strength of 8% abv. This, I believe is now distributed in a white label bottle as well, which I recently purchased thinking it was a different beer but isn’t.
+
+					<p>Aroma and Appearance: It pours a cloudy gold colour with some centered bubbles and one finger of foam. The aroma is clove, sweet pears, banana, herbs and hints of caramel.</p>
+
+					<p>Flavour: This is a fairly sweet beer, with fruity pears up front and a super light effervescent body that brings out hints of caramel malt and spice in the middle. On the finish, there are notes of clove, more caramel and spicy herbs that get a little astringent as it goes down.</p>
+
+					<p>Overall Impression: Pretty nice beer, very enjoyable and nicely mellowed over the two years.</p>
+
+					<p>Rating: I give it an Excellent rating of 8/10, it is a high quality authentic Tripel.</p>
+				</td>
+		</tr>
+		
+	</table>
+	<a href="#top">Back to top</a>
+	<!-- Brazil-->
+	<h1 id="brazil">Brazil</h1>
+	<table>
+		<tr>
+			<td class="beer">
+				Beer Colorado - Indica
+   			</td>
+
+			<td class="beer">
+				Antarctica Original
+			</td>
+
+			<td class="beer">
+				Tupiniquim Extra Fancy
+			</td>
+		</tr>
+
+		<tr>
+			<td class="imgCell">
+				<img src="images/cerveja_colorado_BR.jpg" alt="brazil" >
+				<p class="price">$ 12.00</p>
+				<button onclick="add1ToCart('colorado')">Add 1 to cart</button>
+			</td>
+
+			<td class="imgCell">
+				<img src="images/antarctica_original_BR.jpg" alt="brazil" >
+				<p class="price">$ 13.00</p>
+				<button onclick="add1ToCart('antarctica')">Add 1 to cart</button>
+			</td>
+
+			<td class="imgCell">
+				<img src="images/tupiniquim_extrafancy__BR.jpg" alt="brazil" >
+				<p class="price">$ 14.00</p>
+				<button onclick="add1ToCart('tupiniquim')">Add 1 to cart</button>
+			</td>
+		</tr>
+
+		<tr >
+			<td>
+				Traditional India Pale Ale, hoppy flavor, high alcohol content, inspired by English beers. Made from English hops, toasted malt and rapadura (traditional Brazilian candy) Average brewing period of 28 days. 7% Alcohol content.
+				<p>Style: India Pale Ale</p>
+				<p>	% alcoholic: 7,00%</p>
+				<p>IBU: 45.00</p>
+				<p>	Hops: Galena e Cascade</p></p>
+				<p>º of Serv.: 8-12ºC</p></p>
+				<p>Color: Ambar</p>
+
+
+			</td>
+
+			<td>
+				Companhia Antarctica Paulista was originally a Brazilian beer brewing company producing the Antarctica beer, that later started to produce sodas such as the Guaraná Antarctica. For several years its main rival on the beer market was Brahma. In 1999 the companies merged to form Ambev.
+				<p>Classic Beer Antarctica Original 600ml is recognized for preserving its essence, tradition and quality since 1931. A Standard American Lager soft, light bitterness and hop aroma, and unique freshness - guaranteed by its high carbonation. Traditional 600ml version is ideal to share with friends without heat. Complement socializing, harmonizing the Original flavor with snacks, cheese breaded, fried squid, oysters or salamis and pizzas.</p>
+
+			</p>
+			</td>
+
+			<td>
+				Most people like drinking a regular IPA and would never consider expanding their beer horizont any further. Some people like to challenge their taste buds and drink fancy IPA - they appreciate the generously hoppiness along with well balanced body and complex flavors. This beer is an Extra Fancy IPA. 
+				<p>Expect more...</p>
+
+				<p>Style: India Pale Ale </p>
+				<p>Brewed: Cerveja Tupiniquim, Brazil </p>
+				<p>	ABV: 6.3</p>
+			</td>
+		</tr>
+
+	</table>
+     <a href="#top">Back to top</a>
+
+	<!-- Canada-->
+	<h1 id="canada">Canada</h1>
+     <table>
+     	<tr>
+     		<td class="beer">
+     			St-Ambroise Apricot
+      		</td>
+
+     		<td class="beer">
+     			Dieu du Ciel - Peche Mortel
+     		</td>
+
+     		<td class="beer">
+     			Dieu du Ciel - Blanche Neige
+     		</td>
+     	</tr>
+
+     	<tr>		
+     		<td class="imgCell">
+				<img src="images/st-ambroise-apricot_CA.jpg" alt="canada" >
+				<p class="price">$ 6.00</p>
+				<button onclick="add1ToCart('ambroise')">Add 1 to cart</button>
+			</td>
+
+     			
+     		<td class="imgCell">
+				<img src="images/Dieu-du-Ciel-Peche-Mortel-Bottle_CA.jpg" alt="canada" >	
+				<p class="price">$ 7.00</p>
+				<button onclick="add1ToCart('pechemortel')">Add 1 to cart</button>
+     		</td>
+
+     		<td class="imgCell">
+				<img src="images/Diu_du_Ciel-Blanche_Neige_CA.jpg" alt="canada" >	
+				<p class="price">$ 8.00</p>
+				<button onclick="add1ToCart('blancheneige')">Add 1 to cart</button>
+     		</td>
+     	</tr>
+
+     	<tr>
+     		<td>
+     			Natural apricot flavour is married to barley and wheat malts to give St-Ambroise Apricot Wheat Ale its uniquely delicious, subtly sweet taste. A natural, delightfully refreshing choice for adventurous palates that appreciate a light ale with a playful twist.
+     			<p>Type: Apricot Wheat Ale</p>
+     			<p>Houblons: Willamette, Golding </p>
+     			<p>IBU : 15</p>
+     			<p>Densité originale (Plato) 15.5</p>
+     			<p> Servir 5 °C — 12 °C</p>
+     			<p>Alc/Vol 5%</p>
+     		</td>
+
+     		<td>
+     			Alcohol by volume (ABV): 9.50% 
+				<p>Péché Mortel (French for "Mortal Sin") is an intensely black and dense beer with very pronounced roasted flavours. Fair trade coffee is infused during the brewing process, intensifying the bitterness of the beer and giving it a powerful coffee taste. Péché mortel is brewed to be savored; we invite you to drink it in moderation.</p> 
+
+				<p>This stout style, high in alcohol and bitterness in order to favour preservation, was historically brewed to support the long and arduous voyage necessary to export the beer from England to Russia. The word Imperial comes from the fact that the beer was specially brewed for the Russian tsar’s court.</p>
+
+     		</td>
+
+     		<td>
+     			Originally introduced at the DDC! brewpub as a winter seasonal in January 2001, Blanche Neige – which translates to “Snow White” – is a Belgian-style wheat beer flavoured with cinnamon and clove, described as follows:
+				<p>Blanche Neige isn’t your typical wheat beer.</p>
+				<p> Firstly, the level of alcohol (9.5%) is surprising and is perceived rapidly both in the bouquet and in the mouth. The spices come through immediately, giving very little room for the usual wheat beer aromas (coriander and curaçao). Cinnamon and clove dominate and the flavours are generously well-rounded thanks no doubt to residual sugars. It is therefore a very sweet beer that is best appreciated slowly.</p>
+
+     		</td>
+     	</tr>
+
+
+     </table>
+     <a href="#top">Back to top</a>
+
+     <!-- United Kingdom-->
+	<h1 id="uk">United Kingdom</h1>
+     <table>
+     	<tr>
+     		<td class="beer">
+     			Fullers London Pride
+     		</td>
+
+     		<td class="beer">
+     			Badger Golden Glory
+     		</td>
+
+     		<td class="beer">
+     			Robison Old Tom
+     		</td>
+     	</tr>
+
+     	<tr>
+     		<td class="imgCell">
+				<img src="images/cerveja_fullers_london_pride_UK.jpg" alt="uk" >	
+				<p class="price">$ 8.00</p>
+				<button onclick="add1ToCart('fullers')">Add 1 to cart</button>
+     		</td>
+
+			<td class="imgCell">
+				<img src="images/badger-golden-glory_UK.jpg" alt="uk" >	
+				<p class="price">$ 9.00</p>
+				<button onclick="add1ToCart('badger')">Add 1 to cart</button>
+     		</td>
+
+     		<td class="imgCell">
+				<img src="images/Robison_Old_Tom_UK.jpg" alt="uk" >	
+				<p class="price">$ 10.00</p>
+				<button onclick="add1ToCart('robison')">Add 1 to cart</button> 
+			</td>
+     	</tr>
+
+     	<tr>
+     		<td>
+     			London Pride is a smooth and astonishingly complex beer, which has a distinctive malty base complemented by a rich balance of well developed hop flavours from the Target, Challenger and Northdown varieties in the brew.
+     		</td>
+
+     		<td>
+     			This award-winning classic is a deliciously balanced ale with peach and melon flavours.  It makes an ideal complement to sticky bbq ribs or an indulgent vanilla cheesecake
+     			<p>Alcohol by volume (ABV): 5.00% </p>
+				<p>Availability: Year-round </p>
+     		</td>
+
+     		<td>
+     			THE ORIGINAL CRAFT BEER
+     			<p>8.5%ABV</p>
+				<p>Old Tom is almost as old as the brewery itself. Dubbed ‘The original craft beer’ this dangerously drinkable legend was born in 1899, when Tom, the old brewery cat, was sketched into immortality by the head brewer.</p>
+				<p>This superior dark ale is recognised, nationally and internationally, as one of the premier strong ales. It has won some of the industry’s most prestigious awards, including World’s Best Ale and Champion Beer of Britain.</p>
+				<p>Rich and warming, Old Tom has a distinctive deep port wine finish, with bitter hops balanced by the heady aromas of dark fruit.</p>
+				<p>Old Tom is available in selective Morrisons, Booths, Waitrose, Bookers and Parfetts across the North West, as well as Asda, Tesco, Sainsbury's and Nisa Today across the UK.</p>
+				<p>Contains: Malted BARLEY and WHEAT.</p>
+     		</td>
+     	</tr>
+
+      </table>
+     <a href="#top">Back to top</a>
+
+   </body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+< <!-- Nom: Claudia Lisboa
+       Description: 420-P55-AS PROGRAMMATION INTERNET I
+       PROJET FINAL -->             -->
+<title> Formulaire Payment</title>
+<style>
+	.divContainer {
+		position: relative;
+		vertical-align: baseline;
+		float:left;
+		clear: both;
+	}
+	.divFrame {
+		border:5px solid black;
+		float:left;
+		margin:10px;
+		padding:10px; 
+	}
+	img {
+		width: 90px;
+		height: 60px;
+	}
+	hr { width: 300px; }
+
+	.street { width: 300px; }
+	.apt { width: 80px; }
+	.price { position: relative; }
+	.number {
+		position: absolute;
+		right: 0;
+	}
+</style>
+</head>
+<body>
+	<form action="action_page.asp" type="get">
+		<div class="divContainer">
+		<!-- Credit card div -->
+		<div class="divFrame">
+	    	<input type = "radio" name = "status" value = "billto"> Bill To
+	    	<br/> <br/>
+			<label for="cardtype">*Card Type:</label>
+			<br/>
+			<select name="cardtype"> 
+				<option value="visa">Visa</option> 
+				<option value="mastercard">Master Card</option> 
+				<option value="americaexpress">America Express</option> 
+			</select>
+			<img src="./images/visa.png" alt="Visa">
+			<img src="./images/mastercard_logo.gif" alt="Master Card">
+			<img src="./images/american_express.png" alt="American Express">
+			</p>
+			<p>
+			    <label for="cardnumber">*Card Number: </label>
+			</p>
+			<p>
+			    <input type="text" name="cardnumber" size="13" maxlength="13"> 
+			</p>
+			<p>
+			    <label>*Expiration date: </label>
+			</p>
+			<p>
+			    <select name="expirationdatemonth"> 
+					<option value="1">1</option> 
+					<option value="2">2</option> 
+					<option value="3">3</option> 
+					<option value="4">4</option> 
+					<option value="5">5</option> 
+					<option value="6">6</option> 
+					<option value="7">7</option> 
+					<option value="8">8</option>
+					<option value="9">9</option> 
+					<option value="10">10</option> 
+					<option value="11">11</option>
+					<option value="12">12</option> 
+				</select>
+			    <select name="expirationdateyear"> 
+					<option value="2016">2016</option>
+					<option value="2017">2017</option> 
+					<option value="2018">2018</option> 
+					<option value="2019">2019</option>
+				</select>
+			</p>
+			<p>
+			    <label>*Security Number: </label>
+			</p>
+			<p>
+			    <input type="text" name="securitynumber" size="3" maxlength="3" > 
+			</p>
+		</div>
+		<!-- Price div -->
+		<div class="divFrame">
+        	<p class="price">Subtotal:<span class="number">$5.00 CAD</span></p
+        		>
+        	<br/>
+        	<p class="price">Shipping:<span class="number">$0.00 CAD</span></p>
+        	<br/>
+        	<p class="price">Taxes:<span class="number">$0.00 CAD</span></p>
+            <hr/>
+        	<p class="price">ORDER TOTAL<span class="number">$5.00 CAD</span></p>
+            <hr/>
+		</div>
+		</div>
+		<div class="divContainer">
+		<!-- Billing address div -->
+		<div class="divFrame">
+			<p>Billing address</p>
+			<p/>
+			<p>*= required fields</p>
+			<p/>
+			<p>
+				<input name="sameasmyshippingaddress" type=checkbox readonly> Same as my shipping address
+			</p>
+			<p/>
+			<p/>
+			<p>
+				<label for="country">*Country:</label>
+			</p>
+			<p>
+				<select name="country"> 
+					<option value="canada">Canada</option> 
+					<option value="unitedstates">United States</option> 
+					<option value="Mexico">Mexico</option> 
+				</select>
+			</p>
+			<p>
+				<label for="firstname">*First Name: </label>
+			</p>
+			<p>
+				<input type="text" name="firstname">
+			</p>
+			<p>
+				<label for="lastname">*Last Name: </label>
+			</p>
+			<p>
+				<input type="text" name="lastname">
+			</p>
+			<p>
+				<label for="street">*Street:</label>
+			</p>
+			<p>
+				<input class= "street" type="text" name="street">
+			</p>
+			<p>
+				<input class= "street" type="text" name="street2">
+			</p>
+			<p>
+				<label for="aptnumber">Apt Number: </label>
+			</p>
+			<p>
+				<input class = "apt"type="text" name="aptnumber" >
+			</p>
+		</div>
+		<!-- City/State/Zip code/Phone div -->
+		<div class="divFrame">
+			<p>
+				<label for="city">*City: </label>
+			</p>
+			<p>
+				<input type="text" name="city">
+			</p>
+			<p>
+			    <label>*Province/State: </label>
+			</p>
+			<p>
+			    <select name="province/state"> 
+					<option value="quebec">Quebec</option> 
+					<option value="ontario">Ontario</option> 
+					<option value="alberta">Alberta</option> 
+					<option value="manitoba">Manitoba</option> 
+					<option value="colombie-Britannique">Colombie-Britannique</option> 
+					<option value="terre-neuve-et-labrador">Terre-Neuve-et-Labrador</option> 
+					<option value="nouveau-brunswick">Nouveau-Brunswick</option> 
+				</select>
+			<p>
+				<label for="postal/zipcode">Postal/Zip Code: </label>
+			</p>
+			<p>
+				<input class = "postal/zipcode"type="text" name="postal/zipcode" >
+			</p>
+			<table>
+				<tr>
+					<td>
+						<label for="phonenumber">Phone Number: </label>
+					</td>
+					<td>
+						<label for="ext">Ext: </label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input class = "phonenumber"type="text" name="phonenumber" >
+					</td>
+					<td>
+						<input class = "ext"type="text" name="ext" >
+					</td>
+				</tr>
+			</table>
+		</div>
+		</div>
+	</form>
+</body>
+</html>

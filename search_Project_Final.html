@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Nom: Claudia Lisboa
+       Description: 420-P55-AS PROGRAMMATION INTERNET I
+       PROJET FINAL -->
+<meta charset="UTF-8">
+<title>Search</title>
+<style type="text/css">
+	body {
+		background: white;
+		font-style : normal;
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight: bold;
+		font-size: 17px; 
+		color: black;
+	}
+
+	#pimage {
+		display: none;
+		max-height: 200px;
+	}
+
+	map {  
+		float:left; 
+		margin-right:10px; 
+		width:80%;
+		height:80%;
+	}
+</style>
+<script type="text/javascript" src="JS/regexp.js"></script>
+<script type="text/javascript">
+function getName(namep)
+{
+	document.getElementById("ptextbox").value = namep;
+}
+  
+function searchName()
+{ 
+   
+   var arrName = ['Duvel', 'Delirium', 'Chimay Yellow', 'Colorado', 'Antarctica Original', 'Tupiniquim', 'St-Ambroise Apricot', 'Peche Mortel', 'Blanche Neige', 'Fullers', 'Badger Golden Glory', 'Robison' ];
+   var arrImage = [ "images/duvel.jpg", "images/delirium-tremens.jpg", "images/Chimay-Trappiste.jpg" ,"images/cerveja_colorado_BR.jpg","images/antarctica_original_BR.jpg", "images/tupiniquim_extrafancy__BR.jpg", "images/st-ambroise-apricot_CA.jpg","images/Dieu-du-Ciel-Peche-Mortel-Bottle_CA.jpg", "images/Diu_du_Ciel-Blanche_Neige_CA.jpg", "images/cerveja_fullers_london_pride_UK.jpg", "images/badger-golden-glory_UK.jpg", "images/Robison_Old_Tom_UK.jpg"
+   ];
+   
+	var pn = document.getElementById("ptextbox").value.toLowerCase(); 
+	pn = regexpTrim(pn);
+
+	var i =0;			
+	for (i = 0; i < arrName.length; i++)
+	{ 
+		if (pn == arrName[i].toLowerCase())
+		{
+			break;
+		}
+	}
+
+	if (i == arrName.length)
+	{
+		// If not found.
+		alert("Sorry, we don't have that beer. Try again!");
+		document.getElementById("pname").innerHTML = "Inconue";
+		document.getElementById("pimage").src = "";
+		document.getElementById("pimage").style.display = "none";
+	}
+	else
+	{
+		document.getElementById("pname").innerHTML = arrName[i];
+		document.getElementById("pimage").src = arrImage[i];
+		document.getElementById("pimage").style.display = "inline-block";
+	}
+	/*
+  if (index == 0){
+   document.getElementById("pname").innerHTML = arrName[0];
+   document.getElementById("pimage").src = arrImages[0];
+   
+   
+   }
+  else if(index >=1 && index <=9)
+       {
+       document.getElementById("pname").innerHTML = arrName[index];
+       document.getElementById("pimage").src = arrImages[index];
+      
+       }
+      else
+	  {
+	      alert("Sorry, we don't have that beer. Try again!");
+	      document.getElementById("pname").innerHTML = "Inconue";
+          document.getElementById("pimage").src = "";
+		 
+      }  
+*/
+ } 
+</script>
+</head>
+
+<body>	
+	<a name="top"></a>
+	
+	<h1>We ship anywhere! </h1>
+	<div class="plan1">	
+		<br />Enter the word you are looking for:
+		<input type="text" id="ptextbox"></input>
+		<br />
+		<button type="button" onclick="searchName()">Search</button>
+	</div>
+	<br/>
+
+	<div class="row">
+	<h2 id="pname">Search word</h2>
+
+	</div>
+	<br/>
+	<img id="pimage" src=""/>
+
+    <br/><br/><br/><br/>
+
+	<img src="images/map-mundi_25.jpg" alt="Mundi" usemap="#MapMundi"> 
+
+	<map name="MapMundi">
+		<!--Canada -->
+		<area alt="Mundi" title="Canada" href="beers_Project_Final.html#canada" shape="poly" coords="248,50,207,85,216,121,347,138,430,137,437,55,450,14" />
+
+		<!--Brazil -->
+		<area alt="Mundi" title="Brazil" href="beers_Project_Final.html#brazil" shape="poly" coords="353,313,347,325,347,331,341,340,346,353,353,358,365,353,380,371,391,378,397,389,404,405,411,413,416,425,410,430,422,427,424,419,428,411,437,406,446,402,443,394,452,400,454,387,454,381,458,369,461,361,467,355,467,348,467,344,448,330,410,315,413,309" />
+
+		<!--Belgiun -->
+		<area alt="Mundi" title="Belgiun" href="beers_Project_Final.html#belgiun" shape="poly" coords="612,112,606,117,611,119,614,120,611,120,610,120,607,122" />
+
+		<!-- United Kingdom-->
+		<area alt="Mundi" title="UnitedKingdom" href="beers_Project_Final.html#uk" shape="poly" coords="587,97,585,116,598,113" />
+	</map>
+</body>
+</html>

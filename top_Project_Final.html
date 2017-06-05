@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Nom: Claudia Lisboa
+       Description: 420-P55-AS PROGRAMMATION INTERNET I
+       PROJET FINAL -->
+
+<style type="text/css">
+	body {
+		background-color: #63803E;
+		height: 100%;
+	}
+	#buttonAlign {	padding-left:25px; }
+	.divMain {
+		width: 100%;
+		position: relative;
+	}
+	.cellTitle {
+		font-style : oblique;
+		font-weight: bold;
+		font-size: 40px; 
+		color: white;
+		width: 100%;
+		text-align: center;
+	}
+	.cellLogin {
+		white-space: nowrap;
+	}
+	.divLeft {
+		font-style : oblique;
+		font-weight: bold;
+		font-size: 40px; 
+		color: white;
+		margin: 0px;
+		vertical-align: center;
+		text-align: center;
+		position: relative;
+    	float: left;
+    	width: 100%;
+		display: inline-block;
+	}
+	.divRight {
+		position: absolute;
+		float: right;
+		display: inline-block;
+		right: 0px;
+	}
+    td {
+		font-style : normal;
+		font-family: Helvetica, Arial, sans-serif;
+		font-weight: bold;
+		font-size: 12px; 
+		color: white;
+	}
+</style>
+<script type="text/javascript" src="JS/login.js"></script>
+<script type="text/javascript" src="JS/cookies.js"></script>
+<script type="text/javascript">
+function authenticate_login()
+{
+	var user = document.getElementById('user').value;
+	var pwd = document.getElementById('pwd').value;
+
+	var bAuthenticated = login(user, pwd);
+
+	if (bAuthenticated)
+	{
+		parent.location.href = "index_Project_Final.html";
+	}
+	else
+	{
+		parent.location.href = "index1_Project_Final.html";
+	}
+}
+
+function authenticate_logout()
+{
+	logout();
+	parent.location.href ="index1_Project_Final.html";
+}
+
+function checkConnection()
+{
+	var sIsConnected = getCookie("connected");
+
+	if (sIsConnected == "true")
+	{
+		var username = document.getElementById("username");
+		username.style.display = "none";
+
+		var password = document.getElementById("password");
+		password.style.display = "none";
+
+		var buttonLogin = document.getElementById("buttonLogin");
+		buttonLogin.style.display = "none";
+	}
+}
+</script>
+<title>Beers, Specialty and Imported</title>
+</head>
+<body onload="checkConnection()">
+	<table>
+		<tr>
+			<td class="cellTitle">
+				Club Brewers. Beers, Specialty and Imported
+			</td>
+			<td class="cellLogin">
+				<table>
+					<tr>
+						<td>
+							<span id="username">
+						    	User    : <input type="text" name="firstname" id="user"/>
+						    </span>&nbsp;&nbsp;
+							 <input type="button"  id="buttonLogin" onClick="authenticate_login()" value="Login " />
+						     <br />
+						     <br />
+						     <span id="password">
+						     	Password  : <input type="password" name="pwd" id="pwd"/>
+						     </span>&nbsp;&nbsp;
+							 <input type="button" id="buttonLogout" onClick="authenticate_logout()" value="Logout" />
+				        </td>
+				   </tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
